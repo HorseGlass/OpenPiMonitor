@@ -46,8 +46,10 @@ export class ArgumentManager {
     }
   }
 
-  getArgument(base: string): string {
-    return this.parsedArguments.get(base)?.value;
+  getArgument(base: string): any {
+    if (this.parsedArguments.get(base)?.value != undefined)
+      return this.parsedArguments.get(base)?.value;
+    return this.argumentList.get(base)?.default;
   }
 
   printHelpArguments() {

@@ -1,11 +1,16 @@
 import { utilExecCommand } from './exec';
+import fs from 'fs';
 
 export function fetchPiData(main: string, sub?: string): Promise<string> {
   return new Promise((resolve, reject) => {
+    if (!fs.existsSync(`./src/shell/${main}.sh`))
+      reject();
     utilExecCommand("sh", [`./src/shell/${main}.sh`], (data: string) => {
       let proccessedData = proccessFetchedData(data, main);
       let fetchedData: any = proccessedData;
       if (sub != undefined) {
+        if ((proccessedData as any)[sub] == undefined)
+          reject();
         fetchedData = (proccessedData as any)[sub];
       }
       resolve(fetchedData);

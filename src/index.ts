@@ -21,12 +21,16 @@ Initialize();
 app.get('/:maintype', function (request, result) {
   fetchPiData(request.params.maintype).then(data => {
     result.json(data);
+  }).catch(() => {
+    result.sendStatus(404);
   });
 });
 
 app.get('/:maintype/:subtype', function (request, result) {
   fetchPiData(request.params.maintype, request.params.subtype).then(data => {
     result.json(data);
+  }).catch(() => {
+    result.sendStatus(404);
   });
 });
 
