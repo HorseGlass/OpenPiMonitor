@@ -1,7 +1,7 @@
 {
   "name": "openpimonitor",
   "version": "1.0.0",
-  "description": "",
+  "description": "A **Node.JS** based API for getting data from your *Raspberry Pi*",
   "main": "index.js",
   "scripts": {
     "start": "ts-node ./src/index.ts"
@@ -17,10 +17,16 @@
     "url": "https://github.com/HorseGlass/OpenPiMonitor/issues"
   },
   "homepage": "https://github.com/HorseGlass/OpenPiMonitor#readme",
-  "dependencies": {
+  "devDependencies": {
     "@types/express": "^4.17.13",
-    "express": "^4.17.3",
+    "@types/figlet": "^1.5.4",
+    "@types/node": "^17.0.23",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "express": "^4.17.3",
+    "figlet": "^1.5.2"
   }
 }
