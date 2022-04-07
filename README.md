@@ -24,6 +24,7 @@ Go to the root directory and run `npm run start`
 |**`/gpu`**|/temp                    |Returns the temperature of the GPU|
 |**`/mem`**|/total<br>/free<br>/usage|Returns the total amount of RAM installed in your PI<br>Returns the amount of RAM thats avaible to be used by processes<br>Returns the amount of already used RAM|
 |**`/storage`**|/total<br>/free<br>/used|Returns the total amount of storage in gigabytes<br>Returns avaible storage space in gigabytes<br>Returns the used storage space in gigabyte|
+|**`/network`**|/ip|Returns the ip address of the pi in the **local** network|
 
 ## Command line arguments
 
