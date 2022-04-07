@@ -44,6 +44,10 @@ function proccessFetchedData(data: string, dataType: string): object {
         used: cleanedData[2],
         free: cleanedData[3]
       };
+    case "network":
+      return {
+        ip: cleanedData[0]
+      }
   }
   return {};
 }
