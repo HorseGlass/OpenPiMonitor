@@ -28,14 +28,12 @@ Go to the root directory and run `npm run start`
 
 ## Command line arguments
 
-You can customize how the *API* behaves[^1].  
+You can customize how the *API* behaves.  
 After typing `npm run start` you can pass arguments to the API seperated by spaces.
 > **Example**: `npm run start -- --port=3001`  
 > **Note**: You need to seperate the arguments from the **npm** command using the `--` in the middle.
 
 **Passable arguments**  
-|Argument     |Default Value|Value Type|Description                                 |
-|-------------|-------------|:--------:|--------------------------------------------|
-|`--port`     |*3000*       |int       |API server port                             |
-
-[^1]: More customizability to come
+|Argument     |Description                       |
+|-------------|----------------------------------|
+|`--help`     |Prints all the possible arguments |
