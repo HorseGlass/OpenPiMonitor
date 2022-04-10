@@ -44,6 +44,7 @@ export const ApplicationArguments: Map<string, ArgumentParser.ArgumentTemplate> 
 ]);
 
 export function parseBool(raw: string) {
+  if (raw == undefined) return false;
   if (raw.toString().toLowerCase() == "true") {
     return true;
   } else if (raw.toString().toLowerCase() == "false") {

@@ -26,14 +26,29 @@ Go to the root directory and run `npm run start`
 |**`/storage`**|/total<br>/free<br>/used|Returns the total amount of storage in gigabytes<br>Returns avaible storage space in gigabytes<br>Returns the used storage space in gigabyte|
 |**`/network`**|/ip|Returns the ip address of the pi in the **local** network|
 
-## Command line arguments
+## openpimonitor.json
 
-You can customize how the *API* behaves.  
-After typing `npm run start` you can pass arguments to the API seperated by spaces.
-> **Example**: `npm run start -- --port=3001`  
-> **Note**: You need to seperate the arguments from the **npm** command using the `--` in the middle.
+> **NOTE**: Command line argument are deprecated and can't be used
 
-**Passable arguments**  
-|Argument     |Description                       |
-|-------------|----------------------------------|
-|`--help`     |Prints all the possible arguments |
+You can customize the behaviour of the API from the `openpimonitor.json` file.
+You don't have to create it. The API will automatically create it on the first startup.
+If the API can't read a variable from the file it will replace it with default values.
+
+Default `openpimonitor.json` file:
+```json
+{
+  "port": 3000,
+  "log": {
+    "enable": false,
+    "write": false,
+    "responsetime": false,
+    "clearonstart": false
+  },
+  "cache": {
+    "enable": false,
+    "write": false,
+    "maxcache": 10,
+    "interval": 5000
+  }
+}
+```
