@@ -46,9 +46,12 @@ Default `openpimonitor.json` file:
   },
   "cache": {
     "enable": false,
-    "write": false,
+    "write": false, // has to be enabled to use /interface
     "maxcache": 10,
-    "interval": 5000
-  }
+    "interval": 5000,
+    "clearonstart": false,
+    "categories": [] // categories to log the data of
+  },
+  "webinterface": false // opens a webserver on /interface to view with graphs
 }
 ```

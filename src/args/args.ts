@@ -12,17 +12,39 @@ const defaultJsonData: object = {
     enable: false,
     write: false,
     maxcache: 10,
-    interval: 5000
-  }
+    interval: 5000,
+    clearonstart: false,
+    categories: []
+  },
+  webinterface: false
+}
+
+const acceptedCacheCategories = {
+  cpu: true,
+  gpu: true,
+  memory: true,
+  storage: true,
+  network: true
 }
 
 export class ArgumentManager {
   parsedArguments: object;
 
   constructor() {
-    if (!fs.existsSync(`${process.cwd()}/openpimonitor.json`)) fs.writeFileSync(`${process.cwd()}/openpimonitor.json`, JSON.stringify(defaultJsonData));
+    if (!fs.existsSync(`${process.cwd()}/openpimonitor.json`)) fs.writeFileSync(`${process.cwd()}/openpimonitor.json`, JSON.stringify(defaultJsonData, null, 4));
     
-    this.parsedArguments = JSON.parse(JSON.stringify(fs.readFileSync(`${process.cwd()}/openpimonitor.json`)));
+    let tempParse = JSON.parse(fs.readFileSync(`${process.cwd()}/openpimonitor.json`).toString());
+    let tempCategories: any[] = [];
+    let categoryArray = (tempParse as any)["cache"]["categories"] || (defaultJsonData as any)["cache"]["categories"];
+    
+    categoryArray.forEach((element: any) => {
+      if ((acceptedCacheCategories as any)[element]) {
+        tempCategories.push(element);
+      }
+    });
+    tempParse["cache"]["categories"] = tempCategories;
+    
+    this.parsedArguments = tempParse;
   }
 
   getArgument = (name: string) => {
